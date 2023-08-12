@@ -14,19 +14,8 @@ public class DiemChuyenTiep {
             int number = scanner.nextInt();
             list.add(number);
         }
+        System.out.println("Result return " + solve(list));
 
-        int count = 0;
-        int count1 = 0;
-        int count0 = 0;
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) == 0) count1++;
-            if (list.get(i) == 1) count0++;
-        }
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) == 0) count++;
-            if (list.get(i) == 1) break;
-        }
-        System.out.println("Result return: " + solve(list));
     }
     public static int solve(List<Integer> arr) {
         int count = -1;
