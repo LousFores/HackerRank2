@@ -1,0 +1,38 @@
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class TanSoXuatHienPhanTu {
+    public static void main(String[] args) {
+        String arrayString = "1 2 2 1";
+        System.out.println(checkCountElement(arrayString) ? "1" : "0");
+
+    }
+    public static boolean checkCountElement(String s) {
+        String[] arrayList = s.split(" ");
+        int solanlap_Number1 = 1;
+        for (int i = 1; i < arrayList.length; i++) {
+            if (arrayList[0].equals(arrayList[i])) {
+                solanlap_Number1++;
+                arrayList[i] = " ";
+            }
+        }
+        for (int i = 1; i < arrayList.length; i++) {
+            if (arrayList[i] != " ") {
+                int soLanLap_NumberN = 1;
+                boolean check = false;
+                for (int j = i + 1; j < arrayList.length; j++) {
+                    if (arrayList[j] != " ") {
+                        if (arrayList[i].equals(arrayList[j]) && arrayList[j] != " ") {
+                            check = true;
+                            arrayList[j] = " ";
+                        }
+                        if (check) soLanLap_NumberN++;
+                    }
+                    if (solanlap_Number1 != soLanLap_NumberN) return false;
+                }
+            }
+        }
+
+        return true;
+    }
+}
